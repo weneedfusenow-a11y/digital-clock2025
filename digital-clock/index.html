@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>??? ??</title>
+<style>
+body {
+  margin: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.clock img {
+  width: 60px;
+  height: auto;
+  vertical-align: middle;
+}
+
+.clock span {
+  color: white;
+  font-size: 60px;
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+<div class="clock">
+  <img id="h1">
+  <img id="h2">
+  <span>:</span>
+  <img id="m1">
+  <img id="m2">
+  <span>:</span>
+  <img id="s1">
+  <img id="s2">
+</div>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  const t = now.toTimeString().slice(0,8).replace(/:/g,'');
+
+  document.getElementById("h1").src = "digits/"+t[0]+".png";
+  document.getElementById("h2").src = "digits/"+t[1]+".png";
+  document.getElementById("m1").src = "digits/"+t[2]+".png";
+  document.getElementById("m2").src = "digits/"+t[3]+".png";
+  document.getElementById("s1").src = "digits/"+t[4]+".png";
+  document.getElementById("s2").src = "digits/"+t[5]+".png";
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+</body>
+</html>
